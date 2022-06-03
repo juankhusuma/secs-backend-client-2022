@@ -18,7 +18,15 @@ export default function MahasiswaDetails() {
 
   React.useEffect(() => {
     if (mahasiswa) {
-      const schedule = {};
+      const schedule = {
+        SENIN: [],
+        SELASA: [],
+        RABU: [],
+        KAMIS: [],
+        JUMAT: [],
+        SABTU: [],
+        MINGGU: [],
+      };
       for (const mataKuliah of mahasiswa.MataKuliah) {
         for (const jadwal of mataKuliah.jadwal) {
           if (!schedule[jadwal]) {
@@ -172,18 +180,21 @@ export default function MahasiswaDetails() {
                 <table>
                   <tbody>
                     {Object.keys(schedule).map((key) => (
-                      <tr key={key}>
-                        <td className="font-bold px-4 py-2">{key}</td>
-                        {schedule[key].map((mataKuliah) => (
-                          <td
-                            className="px-6  cursor-pointer"
-                            onClick={() =>
-                              navigate(`/mata-kuliah/${mataKuliah.id}`)
-                            }
-                          >
-                            {mataKuliah.code}
-                          </td>
-                        ))}
+                      <tr key={key} className="border-stone-400">
+                        <td className="font-bold px-4 bg-sky-300 py-2">
+                          {key}
+                        </td>
+                        {schedule[key].length > 0 &&
+                          schedule[key].map((mataKuliah) => (
+                            <td
+                              className="px-6 bg-green-300 hover:font-bold hover:underline cursor-pointer"
+                              onClick={() =>
+                                navigate(`/mata-kuliah/${mataKuliah.id}`)
+                              }
+                            >
+                              {mataKuliah.code}
+                            </td>
+                          ))}
                       </tr>
                     ))}
                   </tbody>
