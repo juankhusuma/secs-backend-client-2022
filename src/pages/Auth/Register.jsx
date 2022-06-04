@@ -9,14 +9,21 @@ export default function Register() {
   const [NIP, setNIP] = React.useState("");
   const [username, setUsername] = React.useState("");
   const [password, setPassword] = React.useState("");
+  const [loading, setLoading] = React.useState(false);
   return (
     <div>
       <div className="flex w-full h-[100vh] items-center justify-center flex-col">
-        <h1 className="font-bold">Register</h1>
-        <p className="text-red-500 mt-3 mb-3">{error ? `${error}` : ""}</p>
+        <h1
+          className={`font-bold text-center ${
+            error !== "" && !loading ? "text-red-600 text-sm w-1/3 mb-2" : ""
+          }`}
+        >
+          {error && !loading ? error : loading ? "Loading..." : "Register"}
+        </h1>
         <form
           onSubmit={(e) => {
             e.preventDefault();
+            setLoading((_) => true);
             fetch(`${config.url}/auth/register`, {
               method: "POST",
               headers: {
@@ -28,11 +35,12 @@ export default function Register() {
                 username,
                 password,
               }),
-            }).then((res) =>
+            }).then((res) => {
+              setLoading((_) => false);
               res.status === 200
                 ? navigate("/login")
-                : res.json().then((data) => setError(data.error.message))
-            );
+                : res.json().then((data) => setError(data.error.message));
+            });
           }}
           className="flex flex-col"
         >

@@ -15,7 +15,7 @@ export default function CreateMahasiswa() {
   }, [user]);
   return (
     <div>
-      <div className="flex w-full h-[100vh] items-center justify-center flex-col">
+      <div className="flex w-full mt-16 lg:mt-0  lg:h-[100vh] items-center justify-center flex-col">
         {user && token ? (
           <>
             <h1 className="font-bold">Add Mahasiswa</h1>
@@ -70,16 +70,22 @@ export default function CreateMahasiswa() {
                 />
               </div>
               <input
-                className="px-4 py-2 border-2 inline-block mt-8 border-black hover:bg-black hover:text-white"
+                className="px-4 py-2 border-2 inline-block mt-8 border-black hover:bg-green-400 bg-green-300 hover:text-white"
                 type="submit"
                 value="Submit"
               />
+              <div
+                className="cursor-pointer select-none px-4 py-2 border-2 inline-block mt-2 border-black bg-yellow-300 hover:bg-yellow-300 text-center"
+                onClick={() => navigate("/mahasiswa")}
+              >
+                Back
+              </div>
             </form>
           </>
         ) : (
-          <div className="font-bold">
+          <p className="font-bold text-center p-5">
             Unauthorized. You must be logged in to access this page
-          </div>
+          </p>
         )}
       </div>
     </div>

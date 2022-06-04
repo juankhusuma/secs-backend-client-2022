@@ -23,12 +23,16 @@ export default function MataKuliahRow({ mahasiswa, idx }) {
         >
           {hover && user.Role === "ADMIN" ? <RiPencilLine /> : idx + 1}
         </td>
-        <td className="px-2 border border-collapse border-black ">{name}</td>
-        <td className="px-2 border border-collapse border-black ">{code}</td>
-        <td className="px-1 py-1 border border-collapse border-black ">
+        <td className="px-2 border border-collapse border-black whitespace-nowrap">
+          {name}
+        </td>
+        <td className="px-2 border border-collapse border-black whitespace-nowrap">
+          {code}
+        </td>
+        <td className="px-1 py-1 border border-collapse border-black">
           {jadwal.map((item, index) => (
             <div
-              className="w-full hover:bg-stone-400 px-2 text-center"
+              className="w-full hover:bg-stone-400 px-2 text-center whitespace-nowrap"
               key={index}
             >
               {item}

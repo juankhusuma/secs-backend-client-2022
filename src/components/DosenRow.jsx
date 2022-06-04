@@ -24,19 +24,25 @@ export default function DosenRow({ dosen, idx }) {
         >
           {hover && user.Role === "ADMIN" ? <RiPencilLine /> : idx + 1}
         </td>
-        <td className="px-2 border border-collapse border-black ">{name}</td>
-        <td className="px-2 border border-collapse border-black ">{NIP}</td>
-        <td className="px-2 border border-collapse border-black ">
+        <td className="px-2 border border-collapse border-black whitespace-nowrap">
+          {name}
+        </td>
+        <td className="px-2 border border-collapse border-black whitespace-nowrap">
+          {NIP}
+        </td>
+        <td className="px-2 border border-collapse border-black whitespace-nowrap">
           {username}
         </td>
-        <td className="px-2 border border-collapse border-black ">{Role}</td>
-        <td className="px-3 py-2 border border-collapse border-black ">
+        <td className="px-2 border border-collapse border-black whitespace-nowrap">
+          {Role}
+        </td>
+        <td className="px-3 py-2 border border-collapse border-black">
           {MataKuliah.map((item, index) => (
             <div
               onClick={() =>
                 user.Role === "ADMIN" && navigate(`/mata-kuliah/${item.id}`)
               }
-              className="w-full hover:bg-blue-300  m-1 p-1 text-center border cursor-pointer"
+              className="w-full hover:bg-blue-300 whitespace-nowrap  m-1 p-1 text-center border cursor-pointer"
               key={index}
             >
               {`${item.name} (${item.code})`}

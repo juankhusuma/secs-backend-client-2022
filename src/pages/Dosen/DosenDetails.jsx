@@ -47,76 +47,80 @@ export default function DosenDetails() {
         !loading ? (
           <form>
             {dosen ? (
-              <table className="">
-                <tbody>
-                  <tr>
-                    <td className="font-bold px-4 py-2">Name</td>
-                    <td className="px-6">
-                      <input
-                        className="border m-2 px-2 py-1 bg-stone-300"
-                        type="text"
-                        value={name}
-                        onChange={(e) =>
-                          setName(e.target.value) || setChanged(true)
-                        }
-                      />
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="font-bold px-4 py-2">NIP</td>
-                    <td className="px-6">
-                      <input
-                        className="border m-2 px-2 py-1 bg-stone-300"
-                        type="text"
-                        value={NIP}
-                        onChange={(e) =>
-                          setNIP(e.target.value) || setChanged(true)
-                        }
-                      />
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="font-bold px-4 py-2">Username</td>
-                    <td className="px-6">
-                      <input
-                        className="border m-2 px-2 py-1 bg-stone-300"
-                        type="text"
-                        value={username}
-                        onChange={(e) =>
-                          setUsername(e.target.value) || setChanged(true)
-                        }
-                      />
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="font-bold px-4 py-2">Role</td>
-                    <td className="px-6">
-                      <select
-                        className="border m-2 px-2 py-1 bg-stone-300"
-                        value={role}
-                        onChange={(e) =>
-                          setRole(e.target.value) || setChanged(true)
-                        }
-                      >
-                        <option value="ADMIN">ADMIN</option>
-                        <option value="DOSEN">DOSEN</option>
-                      </select>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+              <div className="w-[300px] overflow-x-auto">
+                <table className="text-sm w-full">
+                  <tbody>
+                    <tr>
+                      <td className="bg-stone-300 font-bold px-2 py-2">Name</td>
+                      <td className="px-6">
+                        <input
+                          className="border m-1 w-[150px] px-2 py-1 bg-stone-300"
+                          type="text"
+                          value={name}
+                          onChange={(e) =>
+                            setName(e.target.value) || setChanged(true)
+                          }
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td className="bg-stone-300 font-bold  px-2 py-2">NIP</td>
+                      <td className="px-6">
+                        <input
+                          className="border w-[150px] m-1 px-2 py-1 bg-stone-300"
+                          type="text"
+                          value={NIP}
+                          onChange={(e) =>
+                            setNIP(e.target.value) || setChanged(true)
+                          }
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td className="bg-stone-300 font-bold px-2 py-2">
+                        Username
+                      </td>
+                      <td className="px-6">
+                        <input
+                          className="border w-[150px] m-1 px-2 py-1 bg-stone-300"
+                          type="text"
+                          value={username}
+                          onChange={(e) =>
+                            setUsername(e.target.value) || setChanged(true)
+                          }
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td className="bg-stone-300 font-bold px-2 py-2">Role</td>
+                      <td className="px-6">
+                        <select
+                          className="border m-1 w-[150px] px-2 py-1 bg-stone-300"
+                          value={role}
+                          onChange={(e) =>
+                            setRole(e.target.value) || setChanged(true)
+                          }
+                        >
+                          <option value="ADMIN">ADMIN</option>
+                          <option value="DOSEN">DOSEN</option>
+                        </select>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             ) : (
-              <div className="font-bold">User Not Found</div>
+              <div className="font-bold text-center">Dosen Not Found</div>
             )}
             <div className="text-center">
               <div
-                className="cursor-pointer border hover:bg-blue-400  border-black px-4 py-2 font-bold hover:text-white"
+                className="cursor-pointer border bg-blue-300 hover:bg-blue-400  border-black px-2 py-2 font-bold hover:text-white"
                 onClick={() => navigate("/dosen")}
               >
                 Go Back
               </div>
               <div
-                className="cursor-pointer border hover:bg-yellow-400 border-black px-4 py-2 font-bold hover:text-white"
+                className="cursor-pointer border bg-yellow-300 hover:bg-yellow-400 border-black px-2 py-2 font-bold hover:text-white"
                 onClick={() => {
                   setName(dosen.name);
                   setNIP(dosen.NIP);
@@ -129,7 +133,7 @@ export default function DosenDetails() {
               </div>
               {changed ? (
                 <div
-                  className="cursor-pointer border hover:bg-green-500 border-black px-4 py-2 font-bold hover:text-white"
+                  className="cursor-pointer border bg-green-400 hover:bg-green-500 border-black px-2 py-2 font-bold hover:text-white"
                   onClick={() => {
                     let data = { name, NIP, username, Role: role };
                     for (const key in data) {
@@ -159,25 +163,10 @@ export default function DosenDetails() {
                 </div>
               ) : (
                 <div
-                  className="cursor-pointer border hover:bg-red-600 border-black px-4 py-2 font-bold hover:text-white"
-                  onClick={() => {
-                    fetch(`${config.url}/dosen/${id}`, {
-                      method: "DELETE",
-                      headers: {
-                        Authorization: `Bearer ${localStorage.getItem(
-                          "auth-token"
-                        )}`,
-                      },
-                    }).then((res) =>
-                      res.status === 200
-                        ? navigate("/dosen")
-                        : res.json().then((res) => {
-                            setError(res.error.message);
-                          })
-                    );
-                  }}
+                  className="cursor-pointer border bg-red-500 hover:bg-red-600 border-black px-2 py-2 font-bold hover:text-white"
+                  onClick={() => navigate("delete")}
                 >
-                  Delete Record
+                  Delete
                 </div>
               )}
             </div>
@@ -186,7 +175,7 @@ export default function DosenDetails() {
           <div className="font-bold">Loading...</div>
         )
       ) : (
-        <p className="font-bold">
+        <p className="font-bold text-center p-5">
           Unauthorized. Only user with ADMIN privilidge is allowed
         </p>
       )}

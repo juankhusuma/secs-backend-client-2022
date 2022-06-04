@@ -7,14 +7,23 @@ export default function Login() {
   const navigate = useNavigate();
   const [username, setUsername] = React.useState("");
   const [password, setPassword] = React.useState("");
+  const [error, setError] = React.useState("");
+  const [loading, setLoading] = React.useState(false);
   const { setUser } = React.useContext(UserContext);
   return (
     <div>
       <div className="flex w-full h-[100vh] items-center justify-center flex-col">
-        <h1 className="font-bold">Login</h1>
+        <h1
+          className={`font-bold text-center ${
+            error !== "" && !loading ? "text-red-600 text-sm w-1/3 mb-2" : ""
+          }`}
+        >
+          {error && !loading ? error : loading ? "Loading..." : "Login"}
+        </h1>
         <form
           onSubmit={(e) => {
             e.preventDefault();
+            setLoading((_) => true);
             fetch(`${config.url}/auth/login`, {
               method: "POST",
               headers: {
@@ -24,13 +33,19 @@ export default function Login() {
                 username,
                 password,
               }),
-            })
-              .then((res) => res.json())
-              .then((data) => {
-                localStorage.setItem("auth-token", data.token);
-                setUser(data.user);
-                navigate("/");
-              });
+            }).then((res) =>
+              res.status === 200
+                ? res.json().then((data) => {
+                    setLoading((_) => false);
+                    localStorage.setItem("auth-token", data.token);
+                    setUser(data.user);
+                    navigate("/");
+                  })
+                : res.json().then((data) => {
+                    setLoading((_) => false);
+                    setError((_) => data.error);
+                  })
+            );
           }}
           className="flex flex-col"
         >

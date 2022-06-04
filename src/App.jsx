@@ -17,6 +17,9 @@ import DosenDetails from "./pages/Dosen/DosenDetails";
 import MahasiswaDetails from "./pages/Mahasiswa/MahasiswaDetails";
 import CreateMataKuliah from "./pages/MataKuliah/CreateMataKuliah";
 import MataKuliahDetails from "./pages/MataKuliah/MataKuliahDetails";
+import DeleteDosen from "./pages/Dosen/Delete";
+import DeleteMahasiswa from "./pages/Mahasiswa/Delete";
+import DeleteMataKuliah from "./pages/MataKuliah/Delete";
 
 function App() {
   const [user, setUser] = React.useState(null);
@@ -56,6 +59,13 @@ function App() {
             <Route path="/mahasiswa/:id" element={<MahasiswaDetails />} />
             <Route path="/mata-kuliah/create" element={<CreateMataKuliah />} />
             <Route path="/mata-kuliah/:id" element={<MataKuliahDetails />} />
+            <Route path="/dosen/:id/delete" element={<DeleteDosen />} />
+            <Route path="/dosen/:id/delete" element={<DeleteDosen />} />
+            <Route path="/mahasiswa/:id/delete" element={<DeleteMahasiswa />} />
+            <Route
+              path="/mata-kuliah/:id/delete"
+              element={<DeleteMataKuliah />}
+            />
             <Route path="*" element={<Page404 />} />
           </Routes>
           <footer className="text-center mt-20 py-1 bottom-0 relative">

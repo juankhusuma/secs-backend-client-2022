@@ -21,13 +21,17 @@ export default function MahasiswaRow({ mahasiswa, idx }) {
         >
           {hover ? <RiPencilLine /> : idx + 1}
         </td>
-        <td className="px-2 border border-collapse border-black ">{name}</td>
-        <td className="px-2 border border-collapse border-black ">{NIM}</td>
-        <td className="px-3 py-2 border border-collapse border-black ">
+        <td className="px-2 border border-collapse border-black whitespace-nowrap">
+          {name}
+        </td>
+        <td className="px-2 border border-collapse border-black whitespace-nowrap">
+          {NIM}
+        </td>
+        <td className="px-3 py-2 border border-collapse border-black">
           {MataKuliah.map((item, index) => (
             <div
               onClick={() => navigate(`/mata-kuliah/${item.id}`)}
-              className="w-full hover:bg-blue-300  m-1 p-1 text-center border cursor-pointer"
+              className="w-full whitespace-nowrap hover:bg-blue-300  m-1 p-1 text-center border cursor-pointer"
               key={index}
             >
               {`${item.name} (${item.code})`}

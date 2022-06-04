@@ -31,41 +31,46 @@ export default function MataKuliah() {
     <div className="mt-16 flex flex-col w-full items-center">
       <div
         onClick={() => navigate("/mata-kuliah/create")}
-        className="mb-10 cursor-pointer border hover:bg-green-500 border-black px-4 py-2 font-bold hover:text-white"
+        className="mb-10 cursor-pointer border bg-green-400 hover:bg-green-500 border-black px-4 py-2 font-bold hover:text-white"
       >
         Add Mata Kuliah
       </div>
       {!loading ? (
-        <table>
-          <thead className="text-center">
-            <tr>
-              <th className="px-4 py-1 border border-collapse border-black bg-gray-100">
-                No.
-              </th>
-              <th className="px-4 py-1 border border-collapse border-black bg-gray-100">
-                Name
-              </th>
-              <th className="px-4 py-1 border border-collapse border-black bg-gray-100">
-                Code
-              </th>
-              <th className="px-4 py-1 border border-collapse border-black bg-gray-100">
-                Jadwal
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {mataKuliah.map((item, index) => (
-              <MataKuliahRow mahasiswa={item} idx={index} key={index} />
-            ))}
-          </tbody>
-        </table>
+        <>
+          <h1 className="font-bold mb-3">Mata Kuliah</h1>
+          <div className="w-[300px] max-h-[500px] overflow-auto lg:w-[750px] lg:max-h-[800px] border-2 border-black">
+            <table className="w-full">
+              <thead className="text-center">
+                <tr>
+                  <th className="px-4 py-1 border border-collapse border-black bg-gray-100">
+                    No.
+                  </th>
+                  <th className="px-4 py-1 border border-collapse border-black bg-gray-100">
+                    Name
+                  </th>
+                  <th className="px-4 py-1 border border-collapse border-black bg-gray-100">
+                    Code
+                  </th>
+                  <th className="px-4 py-1 border border-collapse border-black bg-gray-100">
+                    Jadwal
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {mataKuliah.map((item, index) => (
+                  <MataKuliahRow mahasiswa={item} idx={index} key={index} />
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </>
       ) : (
         <div className="font-bold">Loading...</div>
       )}
     </div>
   ) : (
     <div className="flex flex-col w-full h-[100vh] items-center justify-center">
-      <p className="font-bold">
+      <p className="font-bold text-center p-5">
         Unauthorized. You must be logged in to access this page
       </p>
     </div>

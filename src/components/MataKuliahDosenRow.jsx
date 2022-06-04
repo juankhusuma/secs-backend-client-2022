@@ -56,10 +56,22 @@ export default function MataKuliahDosenRow({
         }}
         className="pl-5 pr-3 border border-collapse border-black cursor-pointer"
       >
-        {hover ? assign ? <BiPlusCircle /> : <TiDelete /> : idx + 1}
+        {hover ? (
+          assign ? (
+            <BiPlusCircle className="text-xs" />
+          ) : (
+            <TiDelete className="text-xs" />
+          )
+        ) : (
+          idx + 1
+        )}
       </td>
-      <td className="px-2 border border-collapse border-black ">{name}</td>
-      <td className="px-2 border border-collapse border-black ">{NIP}</td>
+      <td className="px-2 border border-collapse border-black whitespace-nowrap">
+        {name}
+      </td>
+      <td className="px-2 border border-collapse border-black whitespace-nowrap">
+        {NIP}
+      </td>
     </tr>
   ) : (
     <tr></tr>

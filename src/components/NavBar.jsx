@@ -1,29 +1,39 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import UserContext from "../lib/UserContext";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { useNavigate } from "react-router-dom";
 
 export default function NavBar() {
   const { user, loading } = React.useContext(UserContext);
   const [showMenu, setShowMenu] = React.useState(false);
+  const navigate = useNavigate();
 
   return (
     <nav className="relative border-2 flex flex-col lg:flex-row  w-full items-center justify-between border-black">
       <div className="flex w-full justify-between">
         <div className="flex">
           <h1 className="select-none font-bold cursor-pointer border-r-2 border-black px-2 hover:bg-black hover:text-white">
-            <Link to="/" onClick={() => setShowMenu((_) => false)}>
+            <div
+              onClick={() => {
+                setShowMenu((_) => false);
+                navigate("/");
+              }}
+            >
               SECS 2022
-            </Link>
+            </div>
           </h1>
-          <h1 className="font-bold cursor-pointer border-r-2 border-black px-2 hover:bg-black hover:text-white">
-            <Link
-              onClick={() => setShowMenu((_) => false)}
+          <h1
+            className={`font-bold cursor-pointer border-r-2 border-black px-2 hover:bg-black hover:text-white`}
+          >
+            <div
+              onClick={() => {
+                setShowMenu((_) => false);
+                navigate(user && !loading ? "/logout" : "/login");
+              }}
               className="select-none"
-              to={user && !loading ? "/logout" : "/login"}
             >
               {user && !loading ? "Logout" : "Login"}
-            </Link>
+            </div>
           </h1>
         </div>
         <div
@@ -39,31 +49,37 @@ export default function NavBar() {
         }`}
       >
         <li className="border-b lg:border-b-0 py-3 lg:py-0 lg:border-l-2 cursor-pointer px-3 border-black hover:bg-black hover:text-white">
-          <Link
-            onClick={() => setShowMenu((_) => false)}
+          <div
+            onClick={() => {
+              setShowMenu((_) => false);
+              navigate("/dosen");
+            }}
             className="select-none"
-            to="/dosen"
           >
             Dosen
-          </Link>
+          </div>
         </li>
         <li className="border-b lg:border-b-0 py-3 lg:py-0 lg:border-l-2 cursor-pointer px-3 border-black hover:bg-black hover:text-white">
-          <Link
-            onClick={() => setShowMenu((_) => false)}
+          <div
+            onClick={() => {
+              setShowMenu((_) => false);
+              navigate("/mahasiswa");
+            }}
             className="select-none"
-            to="/mahasiswa"
           >
             Mahasiswa
-          </Link>
+          </div>
         </li>
         <li className="border-b lg:border-b-0 py-3 lg:py-0 lg:border-x-2 cursor-pointer px-3 border-black hover:bg-black hover:text-white">
-          <Link
-            onClick={() => setShowMenu((_) => false)}
+          <div
+            onClick={() => {
+              setShowMenu((_) => false);
+              navigate("/mata-kuliah");
+            }}
             className="select-none"
-            to="/mata-kuliah"
           >
             Mata Kuliah
-          </Link>
+          </div>
         </li>
       </ul>
     </nav>

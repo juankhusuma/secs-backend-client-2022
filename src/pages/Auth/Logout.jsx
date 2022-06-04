@@ -18,13 +18,13 @@ export default function Logout() {
             localStorage.removeItem("auth-token");
             navigate("/login");
           }}
-          className="border px-4 py-2  border-black hover:text-white hover:bg-black hover:font-bold  mx-2 my-5"
+          className="border px-4 py-2 select-none  border-black hover:text-white bg-red-500 hover:bg-red-600 hover:font-bold  mx-2 my-5"
         >
           Yes
         </div>
         <div
           onClick={() => navigate("/")}
-          className="border px-4 py-2  border-black hover:text-white hover:bg-black hover:font-bold  mx-2 my-5"
+          className="border px-4 py-2 select-none  border-black hover:text-white bg-green-500 hover:bg-green-600 hover:font-bold  mx-2 my-5"
         >
           No
         </div>

@@ -34,7 +34,7 @@ export default function CreateMataKuliah() {
   }, [user]);
   return (
     <div>
-      <div className="flex w-full h-[100vh] items-center justify-center flex-col">
+      <div className="flex w-full mt-16 lg:mt-0  lg:h-[100vh] items-center justify-center flex-col">
         {user && token && user.Role === "ADMIN" ? (
           <>
             <h1 className="font-bold">Add Mata Kuliah</h1>
@@ -163,16 +163,22 @@ export default function CreateMataKuliah() {
                 </div>
               </div>
               <input
-                className="px-4 py-2 border-2 inline-block mt-8 border-black hover:bg-black hover:text-white"
+                className="px-4 bg-green-300 hover:bg-green-400 py-2 border-2 inline-block mt-8 border-black hover:text-white"
                 type="submit"
                 value="Submit"
               />
+              <div
+                className="cursor-pointer select-none px-4 py-2 border-2 inline-block mt-2 border-black bg-yellow-300 hover:bg-yellow-300 text-center"
+                onClick={() => navigate("/mata-kuliah")}
+              >
+                Back
+              </div>
             </form>
           </>
         ) : (
-          <div className="font-bold">
-            Unauthorized. Only user with ADMIN privilidge is allowed
-          </div>
+          <p className="font-bold text-center p-5">
+            Unauthorized. You must be logged in to access this page
+          </p>
         )}
       </div>
     </div>

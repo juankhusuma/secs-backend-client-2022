@@ -8,21 +8,21 @@ export default function UserInfo() {
   ) : user ? (
     <table>
       <tbody>
-        <tr>
-          <td className="font-bold  px-3">Name</td>
-          <td className=" px-3">{user.name}</td>
+        <tr className="hover:bg-stone-200">
+          <td className="font-bold px-3">Name</td>
+          <td className="px-3 whitespace-nowrap">{user.name}</td>
         </tr>
-        <tr>
-          <td className="font-bold  px-3">NIP</td>
-          <td className=" px-3">{user.NIP}</td>
+        <tr className="hover:bg-stone-200">
+          <td className="font-bold   px-3">NIP</td>
+          <td className="whitespace-nowrap px-3">{user.NIP}</td>
         </tr>
-        <tr>
-          <td className="font-bold  px-3">Username</td>
-          <td className=" px-3">{user.username}</td>
+        <tr className="hover:bg-stone-200">
+          <td className="font-bold px-3">Username</td>
+          <td className="whitespace-nowrap px-3">{user.username}</td>
         </tr>
-        <tr>
+        <tr className="hover:bg-stone-200">
           <td className="font-bold  px-3">Role</td>
-          <td className=" px-3">{user.Role}</td>
+          <td className="whitespace-nowrap px-3">{user.Role}</td>
         </tr>
       </tbody>
     </table>
