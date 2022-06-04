@@ -68,9 +68,12 @@ function App() {
             />
             <Route path="*" element={<Page404 />} />
           </Routes>
-          <footer className="text-center mt-20 py-1 bottom-0 relative">
-            Made with <span className="animate-pulse"> ❤ </span>by Juan
-            Dharmananda Khusuma
+          <div className="mb-28"></div>
+          <footer className="text-center bg-white mt-20 border-2 border-black bottom-0 fixed w-full px-4 py-2">
+            Made with <span className="animate-pulse"> ❤ </span>by{" "}
+            <a className="underline" href="https://github.com/juankhusuma">
+              Juan Dharmananda Khusuma
+            </a>
           </footer>
         </UserContext.Provider>
       </Router>
