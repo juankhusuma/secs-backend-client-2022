@@ -60,7 +60,7 @@ export default function MahasiswaDetails() {
       : setLoading(false);
   }, [user]);
   return (
-    <div className="flex flex-col w-full h-[100vh] items-center justify-center overflow-x-auto">
+    <div className="flex flex-col w-full mt-10  items-center justify-center">
       {error && (
         <div className="font-bold text-red-600 text-center">{error}</div>
       )}

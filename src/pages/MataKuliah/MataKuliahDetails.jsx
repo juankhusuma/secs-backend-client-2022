@@ -100,7 +100,7 @@ export default function MataKuliahDetails() {
     } else setLoading(false);
   }, [user]);
   return (
-    <div className="flex flex-col w-full mt-10  items-center justify-center">
+    <div className="flex flex-col xl:flex-row  w-full mt-10 xl:items-start xl:justify-around   items-center justify-center">
       {error && (
         <div className="font-bold text-red-600 text-center">{error}</div>
       )}
@@ -109,132 +109,135 @@ export default function MataKuliahDetails() {
           <>
             <form>
               {mataKuliah ? (
-                <table className="">
-                  <tbody>
-                    <tr>
-                      <td className="font-bold px-4 py-2">Name</td>
-                      <td className="px-6">
-                        <input
-                          className="border m-2 px-2 py-1 bg-stone-300"
-                          type="text"
-                          value={name}
-                          onChange={(e) =>
-                            setName(e.target.value) || setChanged(true)
-                          }
-                        />
-                      </td>
-                    </tr>
-                    <tr>
-                      <td className="font-bold px-4 py-2">Code</td>
-                      <td className="px-6">
-                        <input
-                          className="border m-2 px-2 py-1 bg-stone-300"
-                          type="text"
-                          value={code}
-                          onChange={(e) =>
-                            setCode(e.target.value) || setChanged(true)
-                          }
-                        />
-                      </td>
-                    </tr>
-                    <tr>
-                      <td className="font-bold px-4 py-2">Schedule</td>
-                      <td className="px-6 py-3">
-                        <div>
+                <>
+                  <div className="text-center font-bold mb-5">Mata Kuliah</div>
+                  <table className="">
+                    <tbody>
+                      <tr>
+                        <td className="font-bold px-4 py-2">Name</td>
+                        <td className="px-6">
                           <input
-                            type="checkbox"
-                            checked={monday}
-                            name="senin"
-                            onChange={() =>
-                              setMonday(!monday) || setChanged(true)
+                            className="border m-2 px-2 py-1 bg-stone-300"
+                            type="text"
+                            value={name}
+                            onChange={(e) =>
+                              setName(e.target.value) || setChanged(true)
                             }
                           />
-                          <label className="ml-4" htmlFor="senin">
-                            Senin
-                          </label>
-                        </div>
-                        <div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td className="font-bold px-4 py-2">Code</td>
+                        <td className="px-6">
                           <input
-                            type="checkbox"
-                            checked={tuesday}
-                            name="selasa"
-                            onChange={() =>
-                              setTuesday(!tuesday) || setChanged(true)
+                            className="border m-2 px-2 py-1 bg-stone-300"
+                            type="text"
+                            value={code}
+                            onChange={(e) =>
+                              setCode(e.target.value) || setChanged(true)
                             }
                           />
-                          <label className="ml-4" htmlFor="selasa">
-                            Selasa
-                          </label>
-                        </div>
-                        <div>
-                          <input
-                            type="checkbox"
-                            checked={wednesday}
-                            name="rabu"
-                            onChange={() =>
-                              setWednesday(!wednesday) || setChanged(true)
-                            }
-                          />
-                          <label className="ml-4" htmlFor="rabu">
-                            Rabu
-                          </label>
-                        </div>
-                        <div>
-                          <input
-                            type="checkbox"
-                            checked={thursday}
-                            name="kamis"
-                            onChange={() =>
-                              setThursday(!thursday) || setChanged(true)
-                            }
-                          />
-                          <label className="ml-4" htmlFor="kamis">
-                            Kamis
-                          </label>
-                        </div>
-                        <div>
-                          <input
-                            type="checkbox"
-                            checked={friday}
-                            name="jumat"
-                            onChange={() =>
-                              setFriday(!friday) || setChanged(true)
-                            }
-                          />
-                          <label className="ml-4" htmlFor="jumat">
-                            Jumat
-                          </label>
-                        </div>
-                        <div>
-                          <input
-                            type="checkbox"
-                            checked={saturday}
-                            name="sabtu"
-                            onChange={() =>
-                              setSaturday(!saturday) || setChanged(true)
-                            }
-                          />
-                          <label className="ml-4" htmlFor="sabtu">
-                            Sabtu
-                          </label>
-                        </div>
-                        <div>
-                          <input
-                            type="checkbox"
-                            checked={sunday}
-                            name="minggu"
-                            onChange={() =>
-                              setSunday(!sunday) || setChanged(true)
-                            }
-                          />
-                          <label className="ml-4" htmlFor="minggu">
-                            Minggu
-                          </label>
-                        </div>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td className="font-bold px-4 py-2">Schedule</td>
+                        <td className="px-6 py-3">
+                          <div>
+                            <input
+                              type="checkbox"
+                              checked={monday}
+                              name="senin"
+                              onChange={() =>
+                                setMonday(!monday) || setChanged(true)
+                              }
+                            />
+                            <label className="ml-4" htmlFor="senin">
+                              Senin
+                            </label>
+                          </div>
+                          <div>
+                            <input
+                              type="checkbox"
+                              checked={tuesday}
+                              name="selasa"
+                              onChange={() =>
+                                setTuesday(!tuesday) || setChanged(true)
+                              }
+                            />
+                            <label className="ml-4" htmlFor="selasa">
+                              Selasa
+                            </label>
+                          </div>
+                          <div>
+                            <input
+                              type="checkbox"
+                              checked={wednesday}
+                              name="rabu"
+                              onChange={() =>
+                                setWednesday(!wednesday) || setChanged(true)
+                              }
+                            />
+                            <label className="ml-4" htmlFor="rabu">
+                              Rabu
+                            </label>
+                          </div>
+                          <div>
+                            <input
+                              type="checkbox"
+                              checked={thursday}
+                              name="kamis"
+                              onChange={() =>
+                                setThursday(!thursday) || setChanged(true)
+                              }
+                            />
+                            <label className="ml-4" htmlFor="kamis">
+                              Kamis
+                            </label>
+                          </div>
+                          <div>
+                            <input
+                              type="checkbox"
+                              checked={friday}
+                              name="jumat"
+                              onChange={() =>
+                                setFriday(!friday) || setChanged(true)
+                              }
+                            />
+                            <label className="ml-4" htmlFor="jumat">
+                              Jumat
+                            </label>
+                          </div>
+                          <div>
+                            <input
+                              type="checkbox"
+                              checked={saturday}
+                              name="sabtu"
+                              onChange={() =>
+                                setSaturday(!saturday) || setChanged(true)
+                              }
+                            />
+                            <label className="ml-4" htmlFor="sabtu">
+                              Sabtu
+                            </label>
+                          </div>
+                          <div>
+                            <input
+                              type="checkbox"
+                              checked={sunday}
+                              name="minggu"
+                              onChange={() =>
+                                setSunday(!sunday) || setChanged(true)
+                              }
+                            />
+                            <label className="ml-4" htmlFor="minggu">
+                              Minggu
+                            </label>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </>
               ) : (
                 <div className="font-bold">User Not Found</div>
               )}
@@ -344,60 +347,32 @@ export default function MataKuliahDetails() {
                 setAllDosen,
               }}
             >
-              <h1 className="font-bold text-center mt-10 mb-5">Mahasiswa</h1>
-              <table className="mb-20">
-                <thead className="text-center">
-                  <tr>
-                    <th colSpan={3}>Assigned</th>
-                  </tr>
-                  <tr>
-                    <th className="px-4 py-1 border border-collapse border-black bg-gray-100">
-                      No.
-                    </th>
-                    <th className="px-4 py-1 border border-collapse border-black bg-gray-100">
-                      Name
-                    </th>
-                    <th className="px-4 py-1 border border-collapse border-black bg-gray-100">
-                      NIM
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {mahasiswa.map((mahasiswa, index) => (
-                    <MataKuliahMahasiswaRow
-                      user
-                      mahasiswa={mahasiswa}
-                      idx={index}
-                      mataKuliahId={id}
-                      key={index}
-                    />
-                  ))}
-                  {mahasiswa.length === 0 && (
-                    <tr className="text-center">
-                      <td
-                        colSpan={3}
-                        className="border border-collapse border-black bg-gray-100"
-                      >
-                        <p>None</p>
-                      </td>
+              <div>
+                <h1 className="font-bold text-center mt-10 xl:mt-0 mb-5">
+                  Mahasiswa
+                </h1>
+                <table className="mb-20">
+                  <thead className="text-center">
+                    <tr>
+                      <th colSpan={3} className="bg-green-300">
+                        Assigned
+                      </th>
                     </tr>
-                  )}
-                </tbody>
-                <thead>
-                  <tr>
-                    <th colSpan={3}>All</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {allMahasiswa
-                    .filter((item) => {
-                      return !mahasiswa.some(
-                        (mahasiswa) => mahasiswa.id === item.id
-                      );
-                    })
-                    .map((mahasiswa, index) => (
+                    <tr>
+                      <th className="px-4 py-1 border border-collapse border-black bg-gray-100">
+                        No.
+                      </th>
+                      <th className="px-4 py-1 border border-collapse border-black bg-gray-100">
+                        Name
+                      </th>
+                      <th className="px-4 py-1 border border-collapse border-black bg-gray-100">
+                        NIM
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {mahasiswa.map((mahasiswa, index) => (
                       <MataKuliahMahasiswaRow
-                        assign
                         user
                         mahasiswa={mahasiswa}
                         idx={index}
@@ -405,60 +380,68 @@ export default function MataKuliahDetails() {
                         key={index}
                       />
                     ))}
-                </tbody>
-              </table>
-              <h1 className="font-bold text-center mb-5">Dosen</h1>
-              <table className="mb-20">
-                <thead className="text-center">
-                  <tr>
-                    <th colSpan={3}>Assigned</th>
-                  </tr>
-                  <tr>
-                    <th className="px-4 py-1 border border-collapse border-black bg-gray-100">
-                      No.
-                    </th>
-                    <th className="px-4 py-1 border border-collapse border-black bg-gray-100">
-                      Name
-                    </th>
-                    <th className="px-4 py-1 border border-collapse border-black bg-gray-100">
-                      NIP
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {dosen.map((dosen, index) => (
-                    <MataKuliahDosenRow
-                      user
-                      dosen={dosen}
-                      idx={index}
-                      mataKuliahId={id}
-                      key={index}
-                    />
-                  ))}
-                  {dosen.length === 0 && (
-                    <tr className="text-center">
-                      <td
-                        colSpan={3}
-                        className="border border-collapse border-black bg-gray-100"
-                      >
-                        <p>None</p>
-                      </td>
+                    {mahasiswa.length === 0 && (
+                      <tr className="text-center">
+                        <td
+                          colSpan={3}
+                          className="border border-collapse border-black bg-gray-100"
+                        >
+                          <p>None</p>
+                        </td>
+                      </tr>
+                    )}
+                  </tbody>
+                  <thead>
+                    <tr>
+                      <th colSpan={3} className="bg-sky-300">
+                        All
+                      </th>
                     </tr>
-                  )}
-                </tbody>
-                <thead>
-                  <tr>
-                    <th colSpan={3}>All</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {allDosen
-                    .filter((item) => {
-                      return !dosen.some((dosen) => dosen.id === item.id);
-                    })
-                    .map((dosen, index) => (
+                  </thead>
+                  <tbody>
+                    {allMahasiswa
+                      .filter((item) => {
+                        return !mahasiswa.some(
+                          (mahasiswa) => mahasiswa.id === item.id
+                        );
+                      })
+                      .map((mahasiswa, index) => (
+                        <MataKuliahMahasiswaRow
+                          assign
+                          user
+                          mahasiswa={mahasiswa}
+                          idx={index}
+                          mataKuliahId={id}
+                          key={index}
+                        />
+                      ))}
+                  </tbody>
+                </table>
+              </div>
+              <div>
+                <h1 className="font-bold text-center mb-5">Dosen</h1>
+                <table className="mb-20">
+                  <thead className="text-center">
+                    <tr>
+                      <th className="bg-green-300" colSpan={3}>
+                        Assigned
+                      </th>
+                    </tr>
+                    <tr>
+                      <th className="px-4 py-1 border border-collapse border-black bg-gray-100">
+                        No.
+                      </th>
+                      <th className="px-4 py-1 border border-collapse border-black bg-gray-100">
+                        Name
+                      </th>
+                      <th className="px-4 py-1 border border-collapse border-black bg-gray-100">
+                        NIP
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {dosen.map((dosen, index) => (
                       <MataKuliahDosenRow
-                        assign
                         user
                         dosen={dosen}
                         idx={index}
@@ -466,8 +449,42 @@ export default function MataKuliahDetails() {
                         key={index}
                       />
                     ))}
-                </tbody>
-              </table>
+                    {dosen.length === 0 && (
+                      <tr className="text-center">
+                        <td
+                          colSpan={3}
+                          className="border border-collapse border-black bg-gray-100"
+                        >
+                          <p>None</p>
+                        </td>
+                      </tr>
+                    )}
+                  </tbody>
+                  <thead>
+                    <tr>
+                      <th className="bg-sky-300" colSpan={3}>
+                        All
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {allDosen
+                      .filter((item) => {
+                        return !dosen.some((dosen) => dosen.id === item.id);
+                      })
+                      .map((dosen, index) => (
+                        <MataKuliahDosenRow
+                          assign
+                          user
+                          dosen={dosen}
+                          idx={index}
+                          mataKuliahId={id}
+                          key={index}
+                        />
+                      ))}
+                  </tbody>
+                </table>
+              </div>
             </DosenMahasiswaContext.Provider>
           </>
         ) : (
