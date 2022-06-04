@@ -345,7 +345,7 @@ export default function MataKuliahDetails() {
                   Mahasiswa
                 </h1>
                 <div className="w-[300px] max-h-[500px] lg:max-h-[800px] overflow-auto border-2 border-black mb-20">
-                  <table>
+                  <table className="w-full">
                     <thead className="text-center">
                       <tr>
                         <th colSpan={3} className="bg-green-300">
