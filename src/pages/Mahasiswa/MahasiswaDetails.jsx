@@ -60,15 +60,17 @@ export default function MahasiswaDetails() {
   }, [user]);
   return (
     <div className="flex flex-col lg:flex-row w-full mt-10 lg:items-start lg:justify-evenly  items-center justify-center">
-      {error && (
-        <div className="font-bold text-red-600 text-center">{error}</div>
-      )}
       {user ? (
         !loading ? (
           <>
             <form>
               {mahasiswa ? (
                 <>
+                  {error && (
+                    <div className="font-bold text-red-600 text-center">
+                      {error}
+                    </div>
+                  )}
                   <h1 className="text-center font-bold mb-3">Mahasiswa</h1>
                   <div className="w-[300px] overflow-x-auto">
                     <table className="w-full">
