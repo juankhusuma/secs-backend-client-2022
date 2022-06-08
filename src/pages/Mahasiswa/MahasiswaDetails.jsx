@@ -66,12 +66,12 @@ export default function MahasiswaDetails() {
             <form>
               {mahasiswa ? (
                 <>
+                  <h1 className="text-center font-bold mb-3">Mahasiswa</h1>
                   {error && (
                     <div className="font-bold text-red-600 text-center">
                       {error}
                     </div>
                   )}
-                  <h1 className="text-center font-bold mb-3">Mahasiswa</h1>
                   <div className="w-[300px] overflow-x-auto">
                     <table className="w-full">
                       <tbody>
