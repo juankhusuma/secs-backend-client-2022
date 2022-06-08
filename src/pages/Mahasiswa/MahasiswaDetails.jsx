@@ -34,7 +34,6 @@ export default function MahasiswaDetails() {
           }
           schedule[jadwal].push(mataKuliah);
         }
-        console.log(schedule);
         setSchedule((_) => schedule);
       }
     }
@@ -132,7 +131,7 @@ export default function MahasiswaDetails() {
                   <div
                     className="cursor-pointer border bg-green-400 hover:bg-green-500 border-black px-4 py-2 font-bold hover:text-white"
                     onClick={() => {
-                      let data = { name, NIM, username, Role: role };
+                      let data = { name, NIM };
                       for (const key in data) {
                         if (data[key] === mahasiswa[key]) {
                           delete data[key];

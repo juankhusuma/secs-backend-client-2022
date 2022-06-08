@@ -19,7 +19,6 @@ export default function MataKuliah() {
           .then((res) => res.json())
           .then((res) => {
             setMataKuliah(res.data);
-            console.log(res);
             setLoading(false);
           })
           .catch((err) => {

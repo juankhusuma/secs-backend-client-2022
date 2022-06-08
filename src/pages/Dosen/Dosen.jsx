@@ -16,7 +16,6 @@ export default function Dosen() {
         })
           .then((res) => res.json())
           .then((res) => {
-            console.log(res.data);
             setDosen(res.data);
             user.Role === "DOSEN" &&
               setDosen((prev) =>
